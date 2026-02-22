@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { useMetro } from '../../context/MetroContext';
 import { useDebounce } from '../../hooks/useDebounce';
@@ -22,9 +23,10 @@ export default function StationSearchInput({
   const inputRef = useRef(null);
   const listRef = useRef(null);
   
+
   const debouncedQuery = useDebounce(inputValue, 300);
 
-  // Filtered and sorted station list
+
   const filteredStations = useMemo(() => {
     // If no query, show all stations (except excluded)
     if (!debouncedQuery.trim()) {
@@ -51,22 +53,17 @@ export default function StationSearchInput({
       });
   }, [debouncedQuery, stationsList, excludeStation]);
 
-  
-  //Sync input value with external value changes
-
   useEffect(() => {
     if (value?.name !== inputValue && value) {
       setInputValue(value.name);
     }
   }, [value]);
 
-  //Reset highlight when filtered results change
-
   useEffect(() => {
     setHighlightedIndex(-1);
   }, [filteredStations]);
 
-  //Handles text input changes
+
   const handleInputChange = (e) => {
     const newValue = e.target.value;
     setInputValue(newValue);
@@ -79,7 +76,7 @@ export default function StationSearchInput({
     }
   };
 
-  //Handles station selection
+
   const handleSelect = useCallback((station) => {
     setInputValue(station.name);
     onChange(station);
@@ -88,7 +85,7 @@ export default function StationSearchInput({
     inputRef.current?.blur();
   }, [onChange]);
 
-  //Keyboard navigation handler
+
   const handleKeyDown = (e) => {
     // If dropdown is closed, open it on arrow down or enter
     if (!isOpen) {
@@ -131,7 +128,7 @@ export default function StationSearchInput({
     }
   };
 
-  //Scroll highlighted option into view
+
   useEffect(() => {
     if (highlightedIndex >= 0 && listRef.current) {
       const highlighted = listRef.current.children[highlightedIndex];
@@ -141,7 +138,6 @@ export default function StationSearchInput({
     }
   }, [highlightedIndex]);
 
-  //Blur handler with delayed dropdown close
   const handleBlur = (e) => {
     setTimeout(() => {
       setIsOpen(false);
