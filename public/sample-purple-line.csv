@@ -1,0 +1,8 @@
+id,name,line,x,y,facilities,zone,connect_to,is_interchange
+purple-1,Digha,purple,100,380,parking;accessibility,1,,false
+purple-2,AIIMS Patna,purple,180,380,toilets;ticketing,1,purple-1,false
+purple-3,Gandhi Maidan,purple,280,380,parking;toilets,2,purple-2,true
+purple-4,Patna High Court,purple,380,380,accessibility,2,purple-3,false
+purple-5,Income Tax Golambar,purple,480,380,parking;toilets;ticketing,2,purple-4,false
+purple-6,Patna Junction,purple,580,380,accessibility;toilets,3,purple-5,true
+purple-7,Khemni Chak,purple,680,380,parking,3,purple-6,false
