@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-metro-red: #90E0EF;
+  --color-metro-blue: #1E88E5;
+  --color-metro-yellow: #FDD835;
+  --color-metro-green: #43A047;
+  --color-primary: #0077B6;
+  
+  /* Light shades for backgrounds */
+  --color-metro-red-light: #CAF0F8;
+  --color-metro-blue-light: #E3F2FD;
+  --color-metro-yellow-light: #FFFDE7;
+  --color-metro-green-light: #E8F5E9;
+}
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Minimal Journey Path Draw Animation */
+@keyframes drawRoutePath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Subtle interchange indicator */
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.interchange-indicator {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* Splash screen animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s ease-in-out infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Line color backgrounds */
+.bg-line-red {
+  background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+}
+
+.bg-line-blue {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+.bg-line-yellow {
+  background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%);
+}
+
+.bg-line-green {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
